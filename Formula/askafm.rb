@@ -5,12 +5,15 @@ class Askafm < Formula
   sha256 "90c77fe503740993e868aaadd1359c3c895086a9f912097ba78e47883af12134"
   license "Apache-2.0"
 
+  depends_on arch: :arm64
+  depends_on macos: :tahoe
+
   def install
     bin.install "askafm"
   end
 
   test do
-      output = shell_output("#{bin}/askafm --help")
-      assert_match "USAGE", output
+    output = shell_output("#{bin}/askafm --help")
+    assert_match "USAGE", output
   end
 end
